@@ -247,7 +247,7 @@ async def tracking_loop(user_service, notify_bot, trading_pair: str = "ETHUSDT")
     last_record = await TradingPairService.get_last_pair(trading_pair)
     tz = pytz.timezone('Europe/Moscow')
 
-    for i in range(1, 5):
+    while 1:
         dataset = await get_pair_data(trading_pair)
         stats = {'trading_pair': trading_pair}
         stats['prediction'] = await get_prediction(dataset)
